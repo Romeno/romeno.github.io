@@ -42,10 +42,11 @@ body {
   margin: 0px;
   border: 0%;
 }
+
 img {
   width: 30%;
   height: 250px;
-  margin: 2px;
+  margin: 30px;
   margin-top: 22px;
   border-radius: 15px;
   padding-bottom: px;
@@ -83,4 +84,43 @@ p {
   margin-bottom: 20px;
   line-height: 1.5;
   white-space: pre-line;
+}
+
+.photographs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.photographs a img {
+  width: 300px;
+  height: auto;
+}
+
+.section-title {
+  margin-top: 40px;
+  border-bottom: 4px solid #3c763d;
+  padding-bottom: 10px;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto;
+}
+
+.poem {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+h2,
+h3 {
+  color: #3c763d;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 40px;
 }
