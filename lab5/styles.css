@@ -1,0 +1,285 @@
+* {
+  font-family: sans-serif;
+}
+h1 {
+  background-color: #3cb371;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 300%;
+}
+
+h2 {
+  font-size: 30px;
+  padding: 5px;
+  color: #3cb371;
+}
+
+h3 {
+  padding: 5px;
+  border-bottom: 3px #3cb371 solid;
+  color: #3cb371;
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+main p {
+  padding: 5px;
+  text-align: justify;
+}
+header nav {
+  background-color: #3cb371;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.menu_multimedia a {
+  text-decoration: none;
+  background-color: #3cb371;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.menu_multimedia a:hover {
+  text-decoration: underline;
+  background-color: #3cb371;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+body main {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+footer {
+  background-color: #3cb371;
+  text-align: center;
+  padding: 3px;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.imagem_video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border: 5px solid #3cb371;
+}
+
+#video_torres {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border: 5px solid #3cb371;
+}
+
+#video_torres:hover {
+  opacity: 0.7;
+}
+
+pre {
+  text-align: center;
+}
+
+section a {
+  text-decoration: none;
+}
+
+.fotos_legenda {
+  text-align: center;
+}
+.fotos_legenda h3 {
+  text-align: left;
+}
+.fotos_legenda figure {
+  display: inline-block;
+  padding: 60px;
+  border-bottom: outset 2px;
+  margin: 40px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+.fotos_legenda img:hover {
+  opacity: 0.8;
+}
+.fotos_legenda figcaption {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+label {
+  font-size: small;
+}
+
+input {
+  font-size: medium;
+}
+
+label,
+input {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.escolha_multipla {
+  display: flex;
+  margin-bottom: 20px;
+  font-size: small;
+}
+
+fieldset p {
+  font-size: small;
+  font-weight: bold;
+}
+
+#distrito {
+  margin-bottom: 10px;
+}
+
+.colocar_bold {
+  font-weight: bold;
+}
+
+fieldset legend {
+  color: white;
+  background-color: #3cb371;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 3px 3px lightgray;
+}
+fieldset {
+  margin-bottom: 10px;
+}
+
+#reset {
+  background-color: #3cb371;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px #3cb371;
+  box-shadow: 5px 3px 3px lightgray;
+}
+#pontos_interesse {
+  margin: 10px;
+}
+
+#pontos_interesse nav {
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #3cb371;
+  box-shadow: 3px 3px 3px lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pontos_interesse a {
+  color: white;
+  text-decoration: none;
+  margin-right: 50px;
+}
+#top_restaurantes,
+#top_monumentos,
+#locais,
+#foto,
+#altura_visitar {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #3cb371;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 3px 3px 3px lightgrey;
+}
+
+#top_restaurantes h3,
+#top_monumentos h3,
+#locais h3,
+#foto h3,
+#altura_visitar h3 {
+  border-bottom: none;
+}
+
+#top_restaurantes li,
+#top_monumentos li,
+#locais li {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+#locais ul li {
+  list-style-type: square;
+}
+
+#top_restaurantes ol li,
+#top_monumentos ol li {
+  list-style: upper-roman;
+}
+
+#foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#top_restaurantes li:nth-child(2n + 1),
+#top_monumentos li:nth-child(2n),
+#locais li:nth-child(2n + 1) {
+  color: #3cb371;
+}
+
+#altura_visitar tr:nth-child(2n) {
+  background-color: #3cb371;
+  color: white;
+}
+
+#altura_visitar tr:nth-child(2n) td:nth-child(2) {
+  background-color: #3cb371;
+  color: white;
+}
+#altura_visitar table {
+  border: 2px #3cb371;
+  text-align: center;
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+.photographs a {
+  cursor: zoom-in;
+}

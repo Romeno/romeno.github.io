@@ -1,3 +1,42 @@
 body {
-  background-color: #b3b3b3;
+  background-image: url("https://img.freepik.com/free-vector/background-luxury-gradient-design-template_483537-1721.jpg?t=st=1728553669~exp=1728557269~hmac=c262d8c5aa1e3ea2ecee61575cbae7e8a0b2fbd084571bad3af09ff18292eb33&w=2000");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start; /* Alinha a imagem e o texto no topo */
+  padding: 20px;
+  justify-content: space-between; /* Espaça os elementos de forma flexível */
+  flex-direction: row-reverse; /* Inverte a ordem dos elementos */
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+  margin-left: 20px; /* Espaço entre o texto e a imagem */
+}
+
+.text-content {
+  max-width: 600px; /* Limita a largura do texto */
+  color: white; /* Exemplo de cor para o texto */
+}
+
+a {
+  color: #3cb371;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  color: #fff;
+  border-color: #fff;
+  border: 0.5px solid white;
+  border-radius: 10px;
+}
+
+footer {
+  color: #3cb371;
+  position: center;
 }
