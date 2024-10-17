@@ -38,5 +38,9 @@ a:hover {
 
 footer {
   color: #3cb371;
-  position: center;
+  text-align: center;
+  font-style: italic;
+}
+li {
+  padding: 8px;
 }

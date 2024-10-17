@@ -85,7 +85,7 @@ header a:last-child {
   font-size: 150%;
 }
 
-#cidades {
+#capitais {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ header a:last-child {
   font-weight: bold;
 }
 
-#cidades section {
+#capitais section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -107,21 +107,21 @@ header a:last-child {
   box-sizing: border-box;
 }
 
-#cidades img {
+#capitais section:hover {
+  background-color: white;
+}
+
+#capitais img {
   width: 100px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
-#cidades div {
+#capitais div {
   width: 100px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#cidades section:hover {
-  background-color: white;
 }
