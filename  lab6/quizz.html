@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizz sobre Suceava</title>
+    <link rel="stylesheet" href="responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Suceava</h1>
+      <h2>Quizz sobre Suceava</h2>
+    </header>
+
+    <nav>
+      <div class="menu">
+        <button class="menubtn">
+          ☰
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="menu-content">
+          <a href="index.html">Home</a>
+          <a href="local.html">Localização</a>
+          <a href="multimedia.html">Multimédia</a>
+          <a href="info.html">Informação</a>
+          <a href="quizz.html">Quizz</a>
+          <a href="viagem.html">Viagem</a>
+          <a href="pontosinteresse.html">Pontos de interesse</a>
+          <a href="capitais.html">Capitais</a>
+          <a href="video.html">Video</a>
+        </div>
+      </div>
+    </nav>
+    <aside>
+      <div class="slides">
+        <img src="images/suceava1_grande.jpeg" alt="Imagem Suceava" />
+        <img src="images/suceava2_grande.jpeg" alt="Imagem Suceava" />
+        <img src="images/suceava3_grande.jpeg" alt="Imagem Suceava" />
+      </div>
+    </aside>
+
+    <form action="https://postman-echo.com/get" method="get">
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" autofocus required />
+
+        <label for="apelido">Apelido:</label>
+        <input type="text" id="apelido" name="apelido" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" size="30" required />
+      </fieldset>
+
+      <fieldset>
+        <legend>Perguntas sobre Suceava</legend>
+
+        <label for="historia"
+          >Qual a data de fundação oficial de Suceava?</label
+        >
+        <input type="date" id="historia" name="historia" required />
+
+        <label for="landmark">Escolha o marco mais famoso de Suceava:</label>
+        <select id="landmark" name="landmark" required>
+          <option value="fortaleza">Fortaleza de Suceava</option>
+          <option value="igreja">Igreja de São Jorge</option>
+          <option value="mosteiro">Mosteiro de Dragomirna</option>
+          <option value="museu">Museu Bucovina</option>
+        </select>
+
+        <label>Você já visitou Suceava?</label>
+        <input type="radio" id="sim" name="visitou" value="sim" />
+        <label for="sim">Sim</label>
+        <input type="radio" id="nao" name="visitou" value="não" />
+        <label for="nao">Não</label>
+
+        <label>Quais locais você gostaria de visitar?</label>
+        <input
+          type="checkbox"
+          id="fortaleza"
+          name="locais"
+          value="Fortaleza de Suceava"
+        />
+        <label for="fortaleza">Fortaleza de Suceava</label>
+        <input
+          type="checkbox"
+          id="igreja"
+          name="locais"
+          value="Igreja de São Jorge"
+        />
+        <label for="igreja">Igreja de São Jorge</label>
+        <input
+          type="checkbox"
+          id="museu"
+          name="locais"
+          value="Museu Bucovina"
+        />
+        <label for="museu">Museu Bucovina</label>
+
+        <label for="landmark-autocomplete"
+          >Escolha ou digite o marco mais famoso de Suceava:</label
+        >
+        <input
+          maxlength="50"
+          list="landmarks"
+          id="landmark-autocomplete"
+          name="landmark-autocomplete"
+        />
+        <datalist id="landmarks">
+          <option value="Fortaleza de Suceava"></option>
+          <option value="Igreja de São Jorge"></option>
+          <option value="Mosteiro de Dragomirna"></option>
+          <option value="Museu Bucovina"></option>
+        </datalist>
+
+        <label for="visit-time">Que horas são agora em Suceava?</label>
+        <input type="time" id="visit-time" name="visit-time" required />
+
+        <label for="rating"
+          >Avalie a beleza da cidade de Suceava de 1 a 10:</label
+        >
+        <input
+          type="number"
+          id="rating"
+          name="rating"
+          min="1"
+          max="10"
+          step="0.5"
+          required
+        />
+
+        <label for="range"
+          >Escolha a distância ideal entre dois pontos turísticos em
+          quilômetros:</label
+        >
+        <input
+          type="range"
+          id="range"
+          name="range"
+          min="1"
+          max="100"
+          required
+        />
+
+        <label for="cor">Qual cor mais lembra Suceava para você?</label>
+        <input type="color" id="cor" name="cor" value="#ffcc00" required />
+
+        <label for="imagem">Escolha uma imagem que represente Suceava:</label>
+        <input
+          type="image"
+          id="imagem"
+          name="imagem"
+          src="https://via.placeholder.com/150"
+          alt="Imagem de Suceava"
+        />
+
+        <label for="comentarios"
+          >Escreva um comentário sobre a cidade de Suceava:</label
+        >
+        <textarea
+          id="comentarios"
+          name="comentarios"
+          rows="4"
+          cols="50"
+        ></textarea>
+
+        <input type="submit" value="Enviar" class="custom-size" />
+        <input type="reset" value="Limpar" class="custom-size" />
+      </fieldset>
+    </form>
+  </body>
+  <footer>
+    <a href="/index.html">Voltar para a página inicial</a>
+    <p>DIW 2024</p>
+  </footer>
+</html>
