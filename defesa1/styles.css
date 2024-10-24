@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: black;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+header {
+  text-align: center;
+  background-color: #b7b7b7;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+h2 {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+li {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.card {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.labs button {
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.labs button:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.labs a:hover {
+  color: white;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #b7b7b7;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  text-decoration: none;
+}
+
+button:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .labs button {
+    padding: 10px;
+    width: 100%;
+  }
+
+  footer {
+    margin-top: 10px;
+    padding: 10px;
+  }
+}
