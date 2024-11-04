@@ -8,3 +8,15 @@ button,
 input {
   margin-right: 10px;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: brown;
+}
+li {
+  padding: 8px;
+}
