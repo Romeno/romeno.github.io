@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    background-color: #D3D3D3;
+}
+
+.header {
+    background-color: #5F9EA0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.title-header {
+    color: white;
+    margin-right: auto;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+.element-header {
+    color: white;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.header p {
+    margin-left: 20px;
+}
+
+#title-page {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 70px;
+}
+
+#title-cesto {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 70px;
+}
+
+#price-cesto {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+}
+
+.grid-container {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item, .cesto-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.grid-item img, .cesto-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cesto {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.title-product {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.price-product {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.description-product {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.button-product {
+    background-color: #5F9EA0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.button-product:hover {
+    background-color: #4682B4;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #5F9EA0;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4682B4;
+    border-color: #fff;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+p {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 50px;
+    text-align: center;
+}

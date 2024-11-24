@@ -161,10 +161,23 @@ function atualizaCustoTotal() {
 document.addEventListener("DOMContentLoaded", () => {
   const gridContainer = document.querySelector(".grid-container");
 
-  produtos.forEach((produto) => {
-    const productArticle = criarProduto(produto);
-    gridContainer.appendChild(productArticle);
-  });
+  fetch("https://deisishop.pythonanywhere.com/products/")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((produto) => {
+        const productArticle = criarProduto(produto);
+        gridContainer.appendChild(productArticle);
+      });
+    })
+
+
+    fetch("https://deisishop.pythonanywhere.com/categories/")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((category) => {
+        
+      });
+    })
 
   carregaCarrinho();
 });
