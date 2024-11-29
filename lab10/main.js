@@ -1,12 +1,78 @@
-function carregarProduto() {
-  produtos.forEach((produto) => {
-    console.log(produto.title);
+// Function to load products into the grid container
+function carregarProdutos(produtos) {
+  const gridContainer = document.querySelector('.grid-container');
+  gridContainer.innerHTML = ''; // Clear existing products
+
+  produtos.forEach(function(produto) {
+    const sectionProduto = criarProduto(produto);
+    gridContainer.appendChild(sectionProduto);
   });
 }
 
+// Function to fetch products with optional filters
+function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
+  let getProdutos = "https://deisishop.pythonanywhere.com/products/";
 
+  fetch(getProdutos)
+    .then((response) => response.json())
+    .then((produtos) => {
+      let produtosFiltrados = produtos;
 
+      if (categoria && categoria !== "all categories") {
+        produtosFiltrados = produtosFiltrados.filter(
+          (produto) => produto.category === categoria
+        );
+      }
 
+      if (ordernacao === "lowest") {
+        produtosFiltrados = produtosFiltrados.sort((a, b) => a.price - b.price);
+      } else if (ordernacao === "highest") {
+        produtosFiltrados = produtosFiltrados.sort((a, b) => b.price - a.price);
+      }
+
+      if (pesquisa) {
+        produtosFiltrados = produtosFiltrados.filter((produto) =>
+          produto.title.toLowerCase().includes(pesquisa.toLowerCase())
+        );
+      }
+
+      carregarProdutos(produtosFiltrados);
+    })
+    .catch((error) => {
+      console.log("Erro produtos", error);
+    });
+}
+
+// Function to fetch categories and populate the category filter
+function fetchCategorias() {
+  const getCategorias = "https://deisishop.pythonanywhere.com/categories/";
+
+  fetch(getCategorias)
+    .then((response) => response.json())
+    .then((categorias) => {
+      carregarCategorias(categorias);
+    })
+    .catch((error) => console.error("Erro categorias", error));
+}
+
+// Function to populate the category filter
+function carregarCategorias(categorias) {
+  const categories = document.getElementById("categories");
+  if (!categories) return;
+
+  categorias.forEach((categoria) => {
+    const option = document.createElement("option");
+    option.value = categoria;
+    option.textContent = categoria;
+    categories.appendChild(option);
+  });
+
+  categories.addEventListener("change", (event) => {
+    const categoriaSelecionada = event.target.value;
+    const ordering = document.getElementById("ordering").value;
+    fetchProdutos(categoriaSelecionada, ordering);
+  });
+}
 
 // Cria os produtos
 function criarProduto(produto) {
@@ -47,10 +113,6 @@ function criarProduto(produto) {
   return article;
 }
 
-
-
-
-
 // Remove produtos do cesto
 function removeProdutoCarrinho(produtoId) {
   const cestoContainer = document.querySelector(".cesto");
@@ -61,10 +123,6 @@ function removeProdutoCarrinho(produtoId) {
     atualizaCustoTotal();
   }
 }
-
-
-
-
 
 // Adiciona produtos ao cesto
 function adicionaProdutoCarrinho(produto) {
@@ -110,10 +168,6 @@ function adicionaProdutoCarrinho(produto) {
   atualizaCustoTotal();
 }
 
-
-
-
-
 // Salva o cesto no localStorage
 function guardaCarrinho() {
   const cestoItems = document.querySelectorAll(".cesto-item");
@@ -130,10 +184,6 @@ function guardaCarrinho() {
   localStorage.setItem("cesto", JSON.stringify(cesto));
 }
 
-
-
-
-
 // Carrega o cesto do localStorage
 function carregaCarrinho() {
   const cesto = JSON.parse(localStorage.getItem("cesto")) || [];
@@ -143,41 +193,31 @@ function carregaCarrinho() {
   atualizaCustoTotal();
 }
 
-
-
-
-//Atualiza o custo total
+// Atualiza o custo total
 function atualizaCustoTotal() {
   const cesto = JSON.parse(localStorage.getItem("cesto")) || [];
-  const total = cesto.reduce((sum, produto) => sum + produto.price, 0);
-  const roundedTotal = total.toFixed(2);
-  document.getElementById("price-cesto").textContent = `Custo Total: ${roundedTotal}€`;
+  const total = cesto.reduce((sum, produto) => sum + parseFloat(produto.price), 0).toFixed(2);
+  document.getElementById("price-cesto").textContent = `Custo Total: ${total}€`;
 }
 
+// event listener do ordering e search
+document.getElementById("ordering").addEventListener("change", (event) => {
+  let ordernacao = event.target.value;
+  let categoria = document.getElementById("categories").value;
+  let pesquisa = document.getElementById("search").value;
+  fetchProdutos(categoria, ordernacao, pesquisa);
+});
 
-
+document.getElementById("search").addEventListener("input", (event) => {
+  let pesquisa = event.target.value;
+  let categoria = document.getElementById("categories").value;
+  let ordernacao = document.getElementById("ordering").value;
+  fetchProdutos(categoria, ordernacao, pesquisa);
+});
 
 // Carrega a pagina
 document.addEventListener("DOMContentLoaded", () => {
-  const gridContainer = document.querySelector(".grid-container");
-
-  fetch("https://deisishop.pythonanywhere.com/products/")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((produto) => {
-        const productArticle = criarProduto(produto);
-        gridContainer.appendChild(productArticle);
-      });
-    })
-
-
-    fetch("https://deisishop.pythonanywhere.com/categories/")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((category) => {
-        
-      });
-    })
-
+  fetchProdutos();
+  fetchCategorias();
   carregaCarrinho();
 });
