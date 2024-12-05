@@ -9,6 +9,23 @@ function carregarProdutos(produtos) {
   });
 }
 
+function carregarMenosInfo(produtos) {
+  const gridContainer = document.querySelector(".grid-container");
+  gridContainer.innerHTML = ""; // Clear existing products
+
+  produtos.forEach(function (produto) {
+    const sectionProduto = menosInfo(produto);
+    gridContainer.appendChild(sectionProduto);
+  });
+}
+
+const button = document.getElementById("menos-info");
+button.addEventListener("click", function () {
+  carregarMenosInfo(produtos);
+});
+
+
+
 // Function to fetch products with optional filters
 function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
   let getProdutos = "https://deisishop.pythonanywhere.com/products/";
@@ -25,9 +42,9 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
       }
 
       if (ordernacao === "lowest") {
-        produtosFiltrados = produtosFiltrados.sort((a, b) => a.price - b.price);
+        produtosFiltrados = produtosFiltrados.sort((a, b) => a.rating.rate - b.rating.rate);
       } else if (ordernacao === "highest") {
-        produtosFiltrados = produtosFiltrados.sort((a, b) => b.price - a.price);
+        produtosFiltrados = produtosFiltrados.sort((a, b) => b.rating.rate - a.rating.rate);
       }
 
       if (pesquisa) {
@@ -37,6 +54,7 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
       }
 
       carregarProdutos(produtosFiltrados);
+      carregarMenosInfo(produtosFiltrados);
     })
     .catch((error) => {
       console.log("Erro produtos", error);
@@ -108,6 +126,36 @@ function criarProduto(produto) {
   return article;
 }
 
+// Create product grid item
+function menosInfo(produto) {
+  const article = document.createElement("article");
+  article.classList.add("grid-item");
+
+  const title = document.createElement("h1");
+  title.classList.add("title-product");
+  title.textContent = produto.title;
+
+  const img = document.createElement("img");
+  img.classList.add("img-product");
+  img.src = produto.image;
+  img.alt = produto.title;
+
+  const price = document.createElement("p");
+  price.classList.add("price-product");
+  price.textContent = `${produto.price}€`;
+
+  const button = document.createElement("button");
+  button.classList.add("button-product");
+  button.textContent = "Adicionar ao Cesto";
+
+  button.addEventListener("click", () => {
+    adicionaProdutoAoCesto(produto);
+  });
+
+  article.append(title, img, price, button);
+  return article;
+}
+
 // Add product to cart
 function adicionaProdutoAoCesto(produto) {
   const cestoContainer = document.querySelector(".cesto");
@@ -115,6 +163,21 @@ function adicionaProdutoAoCesto(produto) {
   cestoContainer.appendChild(cestoProduto);
   guardarProdutoCesto(produto);
   calcularPrecoTotal();
+}
+
+function adicionaTodos(produto){
+  const cesto = document.querySelector(".cesto");
+  const butao = document.querySelector(".add-all-button")
+  const produtoCesto = criaProdutoNoCesto(produto);
+
+    butao.addEventListener("onClick", () => {
+      produtos.forEach((produto) => {
+      produtoCesto.append(criarProdutoNoCesto(produto));
+      cesto.appendChild(cestoProduto);
+      guardarProdutoCesto(produto);
+      calcularPrecoTotal(); 
+    });
+  });
 }
 
 // Create product item in cart
