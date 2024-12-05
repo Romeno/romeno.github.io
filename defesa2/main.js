@@ -54,6 +54,7 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
       }
 
       carregarProdutos(produtosFiltrados);
+      carregarProdutosMenosInfo(produtosFiltrados);
     })
     .catch((error) => {
       console.log("Erro produtos", error);
