@@ -9,20 +9,14 @@ function carregarProdutos(produtos) {
   });
 }
 
-function carregarMenosInfo(produtos) {
+function carregarProdutosMenosInfo(produtos) {
   const gridContainer = document.querySelector(".grid-container");
-  gridContainer.innerHTML = ""; // Clear existing products
-
   produtos.forEach(function (produto) {
     const sectionProduto = menosInfo(produto);
     gridContainer.appendChild(sectionProduto);
   });
 }
 
-const button = document.getElementById("menos-info");
-button.addEventListener("click", function () {
-  carregarMenosInfo(produtos);
-});
 
 
 
@@ -53,8 +47,13 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
         );
       }
 
+      if(pesquisa){
+        produtosFiltrados = produtosFiltrados.filter((produto) =>
+          produto.description.includes(pesquisa)
+      );
+      }
+
       carregarProdutos(produtosFiltrados);
-      carregarMenosInfo(produtosFiltrados);
     })
     .catch((error) => {
       console.log("Erro produtos", error);
@@ -170,10 +169,10 @@ function adicionaTodos(produto){
   const butao = document.querySelector(".add-all-button")
   const produtoCesto = criaProdutoNoCesto(produto);
 
-    butao.addEventListener("onClick", () => {
-      produtos.forEach((produto) => {
+    butao.addEventListener("click", () => {
+      produto.forEach((produto) => {
       produtoCesto.append(criarProdutoNoCesto(produto));
-      cesto.appendChild(cestoProduto);
+      cesto.appendChild(produtoCesto);
       guardarProdutoCesto(produto);
       calcularPrecoTotal(); 
     });
