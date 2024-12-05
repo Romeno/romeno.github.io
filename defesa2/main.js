@@ -10,11 +10,8 @@ function carregarProdutos(produtos) {
     gridContainer.appendChild(sectionProduto);
   });
   button.addEventListener("click", () => {
-    produtos.forEach(function (produto) {
-    produto.description = "";
     carregarProdutosMenosInfo(produtos);
   });
-});
 }
 
 function carregarProdutosMenosInfo(produtos) {
@@ -64,6 +61,7 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
       }
 
       carregarProdutos(produtosFiltrados);
+
     })
     .catch((error) => {
       console.log("Erro produtos", error);
