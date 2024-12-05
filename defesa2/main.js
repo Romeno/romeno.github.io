@@ -2,11 +2,19 @@
 function carregarProdutos(produtos) {
   const gridContainer = document.querySelector(".grid-container");
   gridContainer.innerHTML = ""; // Clear existing products
+  const button = document.getElementById("menos-info");
+
 
   produtos.forEach(function (produto) {
     const sectionProduto = criarProduto(produto);
     gridContainer.appendChild(sectionProduto);
   });
+  button.addEventListener("click", () => {
+    produtos.forEach(function (produto) {
+    produto.description = "";
+    carregarProdutosMenosInfo(produtos);
+  });
+});
 }
 
 function carregarProdutosMenosInfo(produtos) {
@@ -23,6 +31,8 @@ function carregarProdutosMenosInfo(produtos) {
 // Function to fetch products with optional filters
 function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
   let getProdutos = "https://deisishop.pythonanywhere.com/products/";
+
+  const button = document.getElementById("menos-info");
 
   fetch(getProdutos)
     .then((response) => response.json())
@@ -54,7 +64,6 @@ function fetchProdutos(categoria = "", ordernacao = "", pesquisa = "") {
       }
 
       carregarProdutos(produtosFiltrados);
-      carregarProdutosMenosInfo(produtosFiltrados);
     })
     .catch((error) => {
       console.log("Erro produtos", error);
